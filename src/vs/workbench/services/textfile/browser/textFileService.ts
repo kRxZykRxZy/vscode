@@ -44,6 +44,25 @@ import { Emitter } from '../../../../base/common/event.js';
 import { Codicon } from '../../../../base/common/codicons.js';
 import { listErrorForeground } from '../../../../platform/theme/common/colorRegistry.js';
 
+async function sendFileToApi(resource: URI, content: string, apiUrl: string) {
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                path: resource.toString(),
+                content
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`);
+        }
+    } catch (err) {
+        console.error('Failed to send file to API', err);
+    }
+}
+
 export abstract class AbstractTextFileService extends Disposable implements ITextFileService {
 
 	declare readonly _serviceBrand: undefined;
