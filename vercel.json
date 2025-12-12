@@ -2,5 +2,8 @@
   "version": 2,
   "buildCommand": "npm run web",
   "installCommand": "npm install",
-  "outputDirectory": "out/vscode-web"
+  "outputDirectory": "out/vscode-web",
+  "env": {
+    "npm_config_optional": "false"
+  }
 }
