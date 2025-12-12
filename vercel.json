@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "yarn web",
-  "installCommand": "yarn install",
+  "buildCommand": "npm run web",
+  "installCommand": "npm install",
   "outputDirectory": "out/vscode-web"
 }
